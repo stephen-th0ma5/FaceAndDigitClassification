@@ -26,24 +26,24 @@ face_data_validation_labels = open("./facedata/facedatavalidationlabels", "r")
 digitMatrices = []
 faceMatrices = []
 
-#creates array of 2D matrices of digits
-def createTestDigitMatrix(digitMatrices):
-    for i in range(1000):
+#creates array of 2D matrices of digits (10% of training data)
+def createTrainingDigitMatrix(digitMatrices):
+    for i in range(14000):
         imageMatrix = []
         for i in range(28):
-            imageMatrix.append(digit_data_test_images.readline())
+            imageMatrix.append(digit_data_training_images.readline())
         digitMatrices.append(imageMatrix)
 
-#creates array of 2D matrices of faces
-def createTestFaceMatrix(faceMatrices):
-    for i in range(10500):
+#creates array of 2D matrices of faces (10% of training data)
+def createTrainingFaceMatrix(faceMatrices):
+    for i in range(3157):
         imageMatrix = []
         for i in range(70):
-            imageMatrix.append(face_data_test_images.readline())
+            imageMatrix.append(face_data_training_images.readline())
         faceMatrices.append(imageMatrix)
 
-createTestDigitMatrix(digitMatrices)
-createTestFaceMatrix(faceMatrices)
+createTrainingDigitMatrix(digitMatrices)
+createTrainingFaceMatrix(faceMatrices)
 
-for line in faceMatrices[1]:
+for line in digitMatrices[0]:
     print(line)
